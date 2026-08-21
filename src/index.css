@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-zinc-750;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  input, textarea, select, [contenteditable="true"] {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121214;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Selection Marquee Box */
+.selection-marquee {
+  position: absolute;
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  background-color: rgba(37, 99, 235, 0.15);
+  pointer-events: none;
+  z-index: 40;
+  border-radius: 2px;
+}
+
+/* Drag overlay pulse */
+@keyframes dropzone-pulse {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.8);
+    background-color: rgba(37, 99, 235, 0.08);
+  }
+  50% {
+    border-color: rgba(96, 165, 250, 1);
+    background-color: rgba(37, 99, 235, 0.16);
+  }
+}
+
+.dropzone-active {
+  animation: dropzone-pulse 1.5s infinite;
+}
+
+/* Truncate text nicely */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
